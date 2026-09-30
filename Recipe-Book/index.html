@@ -1,37 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <i class="fa-solid fa-magnifying-glass"></i>
 <title>Recipe Book</title>
 <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 
 <h1>Recipe Book</h1>
-<div id="recipes"></div>
+<div class="search-box">
+    <input type="text" placeholder="Search recipe...">
+    <button>Search</button>
+</div>
 
-<script>
-async function getRecipes() {
-    const res = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=");
-    const data = await res.json();
+<div class="recipe-container">
+    <div class="recipe-card">
+        <img src="" alt="Recipe">
+        <h2>Recipe Name</h2>
+        <p>Ingredients will appear here</p>
+        <button>View Recipe</button>
+    </div>
+</div>
 
-    const container = document.getElementById("recipes");
+<script src="script.js"></script>
 
-    data.meals.slice(0,5).forEach(meal => {
-        const div = document.createElement("div");
-
-        div.innerHTML = `
-            <h3>${meal.strMeal}</h3>
-            <img src="${meal.strMealThumb}" width="200">
-            <p>${meal.strInstructions.substring(0,100)}...</p>
-            <a href="${meal.strSource}" target="_blank">View Recipe</a>
-        `;
-
-        container.appendChild(div);
-    });
-}
-
-getRecipes();
-</script>
 
 </body>
 </html>
