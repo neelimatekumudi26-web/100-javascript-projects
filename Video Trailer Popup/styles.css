@@ -1,56 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Trailer Popup</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  <div class="main-container">
-    <img src="https://images.pexels.com/photos/3062545/pexels-photo-3062545.jpeg" alt="movie-image">
-    <h1>Movie Title</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    </p>
-    <button class="btn">Watch now</button>
-  </div>
+body {
+    height: 100vh;
 
-  <!-- Popup -->
-  <div class="trailer-container active">
-    <span class="close">❌</span>
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    <iframe 
-      id="video"
-      src=""
-      frameborder="0"
-      allow="autoplay"
-      allowfullscreen>
-    </iframe>
-  </div>
+    background-color: #222;
 
-  <script>
-  const btnEl = document.querySelector(".btn");
-const trailerContainerEl = document.querySelector(".trailer-container");
-const closeEl = document.querySelector(".close");
-const videoEl = document.getElementById("video");
+    font-family: Arial, sans-serif;
+}
 
-// YouTube embed link
-const link = "https://www.youtube.com/embed/Xa39srijnX8?autoplay=1";
+.container {
+    text-align: center;
+    color: white;
+}
 
-// Open popup
-btnEl.addEventListener("click", () => {
-  trailerContainerEl.classList.remove("active");
-  videoEl.src = link;
-});
+.container h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
 
-// Close popup
-closeEl.addEventListener("click", () => {
-  trailerContainerEl.classList.add("active");
-  videoEl.src = ""; // reset video
-});
-  </script>
+.container p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
 
-</body>
-</html>
+.btn {
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: red;
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: darkred;
+}
+
+
+/* Video Popup */
+
+.trailer-container {
+    display: none;
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 700px;
+
+    padding: 20px;
+
+    background-color: black;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.trailer-container video {
+    width: 100%;
+}
+
+.close-btn {
+    margin-top: 15px;
+
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: red;
+    color: white;
+
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: darkred;
+}

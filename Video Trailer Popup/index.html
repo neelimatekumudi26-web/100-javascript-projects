@@ -1,41 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Video Trailer Popup</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <div class="container">
-  <img src="testMovieTrailer.jpg">
-  <h1>TEST Movie</h1>
-  <button class="btn">Watch Now</button>
-</div>
 
-<div class="trailer-container active">
-  <span class="close">❌</span>
-  <iframe id="video" allow="autoplay"></iframe>
-</div>
-<script>
-const btnEl = document.querySelector(".btn");
-const trailerContainerEl = document.querySelector(".trailer-container");
-const closeEl = document.querySelector(".close");
-const videoEl = document.getElementById("video");
+    <div class="container">
+        <h1>Movie Trailer</h1>
 
-// YouTube embed link
-let link = "https://www.youtube.com/embed/Xa39srijnX8?autoplay=1";
+        <p>Watch the latest movie trailer</p>
 
-// Open popup
-btnEl.addEventListener("click", () => {
-  trailerContainerEl.classList.remove("active");
-  videoEl.src = link;
-});
+        <button class="btn">Watch Trailer</button>
+    </div>
 
-// Close popup
-closeEl.addEventListener("click", () => {
-  trailerContainerEl.classList.add("active");
-  videoEl.src = ""; // reset video
-});
-</script>
+
+    <div class="trailer-container">
+
+        <video controls>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+
+        <button class="close-btn">Close</button>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>
